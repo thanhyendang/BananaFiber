@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Banana Fiber Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Phần có hình ảnh nền -->
+        <div class="content">
+            <header>
+                <img src="img/image.png" width="100px" height="80px" alt="logo">
+            </header>
+
+            <nav>
+                <div class="nav-items">
+                    <a href="#" id="home-link">HOME</a>
+                    <div class="shop-menu">
+                        <a href="#" id="shop-btn">SHOP ▼</a>
+                        <div class="dropdown">
+                            <a href="accessories.html">Accessories</a>
+                            <a href="tshirts.html">T-shirts</a>
+                            <a href="shirts.html">Shirts</a>
+                            <a href="tops.html">Tops</a>
+                            <a href="pants.html">Pants</a>
+                            <a href="outerwear.html">Outerwear</a>
+                            <a href="dresses.html">Dresses</a>
+                        </div>
+                    </div>
+                    <a href="about.html">ABOUT</a>
+                    <a href="#">CAREERS</a>
+                    <a href="#">CONTACT</a>
+                </div>  
+            </nav>
+            
+            <main>
+                <h1>Elevate Your Style </h1>
+                <p>
+                    We bring timeless fashion crafted from natural banana fibers. Experience sustainable elegance with our exclusive collection, designed for both men and women.
+                </p>
+                <a href="http://www.google.com" target="_blank">EXPLORE COLLECTION</a>
+                <img src="img/bìa.png" alt="Fashion Collection" class="collection-image">
+
+
+            </main>
+        </div>
+    
+        <!-- Phần footer không có ảnh nền -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-left">
+                    <h2>BANANAFIBER</h2>
+                    <a href="#"><img src="img/fb.png" alt="Facebook"></a>
+                    <a href="#"><img src="img/ig.png" alt="Instagram"></a>
+                </div>
+                
+                <div class="footer-center">
+                    <h3>JOIN OUR EMAIL LIST</h3>
+                    <p>Be the first to know about our secret sample sales and special events.</p>
+                    <div class="email-box">
+                        <img src="img/mail.png" alt="Email">
+                        <input type="email" placeholder="Enter your email">
+                    </div>
+                </div>
+        
+                <div class="footer-right">
+                    <h3>MORE INFO</h3>
+                    <a href="#">Contact</a>
+                    <a href="#">FAQs</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script>
+        document.getElementById("home-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Ngăn chặn chuyển hướng
+            const dropdown = document.querySelector(".dropdown");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+
+        });
+        document.getElementById("shop-btn").addEventListener("click", function(event) {
+            event.preventDefault(); // Ngăn chặn chuyển hướng
+
+            const dropdown = document.querySelector(".dropdown");
+            // Đổi trạng thái hiển thị dropdown
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "block";
+            } else {
+                dropdown.style.display = "none";
+            }
+        });
+        document.getElementById("dresses-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Ngăn chặn load lại trang
+    
+            // Danh sách sản phẩm (mô phỏng)
+            const products = [
+                { name: "Elegant Red Dress", price: "$50", img: "dress1.jpg" },
+                { name: "Summer Floral Dress", price: "$45", img: "dress2.jpg" },
+                { name: "Black Evening Dress", price: "$60", img: "dress3.jpg" }
+            ];
+    
+            let productList = document.getElementById("product-list");
+            productList.innerHTML = "<h2>Dresses Collection</h2>";
+    
+            products.forEach(product => {
+                let productDiv = document.createElement("div");
+                productDiv.classList.add("product");
+                productDiv.innerHTML = `
+                    <img src="${product.img}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Price: ${product.price}</p>
+                `;
+                productList.appendChild(productDiv);
+            });
+    
+            productList.style.display = "block"; // Hiển thị danh sách
+        });
+    </script>
+    
+</body>
+</html>
